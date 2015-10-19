@@ -1,4 +1,4 @@
-#The exercise is to make the last exercise answer clearer, shorter and simpler using methods
+#This exercise uses methods to simplify the code written in ruby-exercise-3.rb
 def last_word line
   line.split(/[\W]+/).last
 end
@@ -10,8 +10,7 @@ snowy_lines = snowy.gsub(/\n\n/, "\n").lines
 
 puts "Here are all the rhyming pairs from the ends of the Snowy lines"
 
-#rewrite this to use map and each rather than while
-#note: you will find each_slice useful
+#This method uses map and each_slice instead of while
 word_array = snowy_lines.map{|line| last_word line}
 
 snowy_lines.each_slice(4) do |a|
@@ -20,13 +19,14 @@ snowy_lines.each_slice(4) do |a|
   puts "#{word_array[1]}, #{word_array[3]}"
 end
 
-=begin
+puts
+
+#Here is another alterative using while and each
 while i < snowy_lines.count
   [0, 1, 4, 5].each do |n|
     first_word = each_slice[i + n]
     second_word = each_slice[i + n + 2]
     puts "#{first_word}, #{second_word}"
   end
-  i += 9 # This is a short way of writing i = i + 1
+  i += 9
 end
-=end

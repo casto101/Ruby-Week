@@ -1,10 +1,11 @@
-#TODO convert count_books, find, add_book and delete_book to work from inside BookDatabase
+#Add a book to the database, count the books belonging to an author, find a book by an author, or delete a book.
 
 class BookDatabase
   def set_books books
     @books = books
   end
 
+#user command "gets Author Name"--returns the set of books by that author
   def get_books author
     books = @books[author]
     if books == nil
@@ -14,6 +15,7 @@ class BookDatabase
     end
   end
 
+#user command "count Author Name"--returns the number of books written by that author in the database
   def count_books author
     books = @books[author]
     if books == nil
@@ -23,6 +25,7 @@ class BookDatabase
     end
   end
 
+#user command "find Book Title"--if the book exists in the database, the program returns the author's name
   def find book
     result = nil
     @books.each do |author, books|
@@ -37,6 +40,7 @@ class BookDatabase
     end
   end
 
+#user command "add Author Name, Book Title"--adds book title to the author's set of books in the database
   def add_book author, title
     books = @books[author]
     if books
@@ -50,6 +54,7 @@ class BookDatabase
     end
   end
 
+#user command "delete Author Name Book Title"--deletes the book title from the author's set in the database
   def delete_book author, title
     books = @books[author]
     if books
@@ -64,6 +69,7 @@ class BookDatabase
   end
 end
 
+#method determines the command the program will run based on user input
 def handle_command db, command, arg
   if command == 'get'
     db.get_books arg
@@ -91,6 +97,7 @@ def handle_command db, command, arg
   end
 end
 
+#Holds books in the database
 favorite_books = BookDatabase.new
 favorite_books.set_books({ #Need parenthesis here so Ruby doesn't think this is a block
   'Frank Herbert'   => ['Dune', 'Dune Messiah', 'Children of Dune', 'God Emperor of Dune'],
@@ -99,6 +106,7 @@ favorite_books.set_books({ #Need parenthesis here so Ruby doesn't think this is 
   'William Goldman' => ['The Princess Bride']
 })
 
+#user interface
 loop do
   print "Enter a command (q to finish): "
 

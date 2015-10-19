@@ -4,7 +4,6 @@ require_relative 'eliza_questions'
 describe 'Response' do
   it "should create the Response class" do
     expect { Response }.to_not raise_error
-    expect { George }.to_not raise_error
   end
 
   describe "Yelling Mode" do
