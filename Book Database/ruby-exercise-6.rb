@@ -5,7 +5,7 @@ class BookDatabase
     @books = books
   end
 
-#user command "gets Author Name"--returns the set of books by that author
+#user command "get Author Name"--returns the set of books by that author
   def get_books author
     books = @books[author]
     if books == nil
